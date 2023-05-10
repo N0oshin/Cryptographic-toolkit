@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %} Cryptographic toolkit{% endblock %}
+
+{% block content %}
+  
+<div class="row" style = "margin-top:15%;">   
+    <a href="{{url_for('vigenere_cipher_encryption')}}">
+          <button type="button" class="btn btn-lg btn-primary index_btn " style="margin:60px;">encryption</button>
+    </a> 
+</div>
+     
+<div class="row" style="text-align: center;">  
+    <a href="{{url_for('vigenere_decryption')}}">
+         <button type="button" class="btn btn-lg btn-primary index_btn" style="margin: 60px;">decryption</button>
+    </a>
+</div>
+  
+
+{% endblock %}
+
+
+
+
+
+
+

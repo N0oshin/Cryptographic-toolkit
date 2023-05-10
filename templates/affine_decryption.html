@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% block title %} Cryptographic ToolKit{% endblock %}
+{% block content %}
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <div class="alert alert-danger">
+      <ul>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+{% endwith %}
+<div class="container">
+   <div class="row" style="margin:10% auto;">
+      
+     
+         <img src="static/images/logo.png" class="logo2">
+     
+      
+   </div>
+   <div class="container rectangle">
+      <form method="post" action="{{ url_for('affine_decryption') }}">
+         <div class="form-row">
+            <div class="col-md-3 mb-3">
+                <label for="key1">Key1(a)</label>
+                <input type="number" name="a" class="form-control key" placeholder="Key1" value="{{a}}">
+            </div>
+            <div class="col-md-3 mb-3">
+                <label for="key2">Key2(b)</label>
+                <input type="number" name="b" class="form-control key" placeholder="Key2" value="{{b}}">
+            </div>
+            
+        </div>
+            <div class="form-row">
+            <div class="form-group col-md-12">
+                <label for="msg">Cipherintext</label>
+                <textarea name="msg" class="form-control msg"  rows="3"></textarea>
+              </div>
+
+           </div>
+         </div>
+         <br>
+         <button class="btn btn-secondary" type="submit">Submit</button>
+      </form>
+   </div>
+</div>
+
+
+{% if cipher %}
+<div class="container rectangle" style="margin-top: 50px;">
+    <form>
+       
+        <div class="form-row">
+            <div class="col-md-3 mb-3">
+                <label for="key1">Key1(a)</label>
+                <input type="number" name="a" class="form-control key" placeholder="Key1" value="{{a}}">
+            </div>
+            <div class="col-md-3 mb-3">
+                <label for="key2">Key2(b)</label>
+                <input type="number" name="b" class="form-control key" placeholder="Key2" value="{{b}}">
+            </div>
+        
+        </div>
+            <div class="form-row">
+            <div class="form-group col-md-12">
+                <label for="msg">Ciphertext</label>
+                <textarea name="msg" class="form-control msg"  rows="3" >{{ cipher }}</textarea>
+              </div>
+
+           </div>
+           <div class="form-row">
+            <div class="form-group col-md-12">
+                <label for="cipher">Orginal message</label>
+                <textarea name="msg" class="form-control msg"  rows="3" >{{ plain }}</textarea>
+              </div>
+
+           </div>
+         </div>
+       <br>
+       
+    </form>
+ </div>
+
+
+{% endif %}
+
+
+
+{% endblock %}
+
+

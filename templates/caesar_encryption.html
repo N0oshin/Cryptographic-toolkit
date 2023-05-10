@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% block title %} Cryptographic ToolKit {% endblock %}
+{% block content %}
+<div class="container">
+
+   <div class="row" style="margin:10% auto;">    
+         <img src="static/images/logo.png" class="logo2">
+   </div>
+   
+   <div class="container rectangle">
+      <form method="post" action="{{ url_for('caesar_encryption') }}">
+      
+         <div class="form-row">  
+            <div class="col-md-3 mb-3">
+            <label for="key">Key</label>
+            <input type="number" name="key" class="form-control key" placeholder="Key">
+            </div>
+         </div>
+         
+         <div class="form-row">
+            <div class="form-group col-md-12">
+            <label for="msg">Plaintext</label>
+            <textarea name="msg" class="form-control msg"  rows="3"></textarea>
+            </div>
+        </div>
+   
+        <br>
+
+        <button class="btn btn-secondary" type="submit">Submit</button>
+  
+     </form>
+   </div>
+</div>
+
+
+{% if cipher %}
+<div class="container rectangle" style="margin-top: 50px;">
+    <form method="post" action="{{ url_for('caesar_encryption') }}">
+       
+        <div class="form-row">
+            
+            <div class="col-md-3 mb-3">
+            <label for="key">Key</label>
+            <input type="number" name="key" class="form-control key" placeholder="Key" value="{{key}}">
+            </div>
+        </div>
+            <div class="form-row">
+            <div class="form-group col-md-12">
+                <label for="msg">Plaintext</label>
+                <textarea name="msg" class="form-control msg"  rows="3" >{{ plain }}</textarea>
+            </div>
+
+           </div>
+           <div class="form-row">
+            <div class="form-group col-md-12">
+                <label for="cipher">Ciphertext</label>
+                <textarea name="msg" class="form-control msg"  rows="3" >{{ cipher }}</textarea>
+              </div>
+
+           </div>
+         </div>
+       <br>
+       
+    </form>
+ </div>
+
+
+{% endif %}
+
+
+
+{% endblock %}
+
+

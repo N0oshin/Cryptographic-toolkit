@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+
+
+{% block title %} Cryptographic toolkit{% endblock %}
+
+
+
+{% block content %}
+
+
+  <div class="row" style = "margin-top:15%;">
+    <div class="col-md-6" style="margin-top: 50px;">   
+          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp" class="img-fluid" alt="Sample image">    
+    </div>
+  
+    <div class="col-md-6">
+      <div class="row">   
+      
+        <a href="{{url_for('caesar')}}">
+          <button type="button" class="btn btn-lg btn-primary index_btn " style="margin:60px; width: 200px;"> Caesar </button>
+        </a> 
+    </div>
+     
+    <div class="row" style="text-align: center;">  
+        <a href="{{url_for('vigenere')}}">
+         <button type="button" class="btn btn-lg btn-primary index_btn" style="margin:60px; width: 200px;">Vigenere</button>
+      </a>
+    </div>
+
+      <div class="row">
+        <a href="{{url_for('affine')}}">
+         <button type="button" class="btn btn-lg btn-primary index_btn" style="margin:60px; width: 200px;"> Affine </button>
+        </a>
+      </div>
+  
+    </div>
+  </div>
+
+{% endblock %}
+
+
+
+
+
+
+
